@@ -1,0 +1,73 @@
+body{
+	background-color: #5fdafc;
+	font-size: 20px;	
+	padding: 10px;
+}
+
+#forma1{
+	margin-left: auto;
+    margin-right: auto;
+	border: 1px solid black;
+	width: 310px;
+	text-align: center;
+	padding-top: 5px;
+	background-color: #90AFC5;
+	box-shadow: 3px 3px 8px #762636;
+}
+
+input,select{
+	margin: 7px;
+}
+
+h1{
+	color: #2A3132;
+	text-align: center;
+}
+
+.cita{
+    margin-left: auto;
+    margin-right: auto;
+	border: 1px solid black;
+	width: 310px;
+	text-align: center;
+	padding-top: 5px;
+    margin-bottom: 10px;
+	background-color: #90AFC5;
+	box-shadow: 3px 3px 8px #762636;
+}
+
+#nombre{
+    font-size: 25px;
+}
+
+.Bienvenida{
+	margin-left: auto;
+    margin-right: auto;
+	border: 1px solid black;
+	width: 310px;
+	height: 200px;
+	text-align: center;
+	padding-top: 5px;
+    margin-bottom: 10px;
+	background-color: #dfe8ed;
+	box-shadow: 3px 3px 8px #762636;
+}
+
+.registro{
+	width: 200px;
+  font-size: 15px;
+  padding: 5px;
+}
+
+.citasD{
+	margin-left: auto;
+    margin-right: auto;
+	border: 1px solid black;
+	width: 310px;
+	height: 100px;
+	text-align: center;
+	padding-top: 5px;
+    margin-bottom: 20px;
+	background-color: #dfe8ed;
+	box-shadow: 3px 3px 8px #762636;
+}

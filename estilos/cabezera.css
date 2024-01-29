@@ -1,0 +1,59 @@
+body{
+	margin: 0;
+}
+.contenedor{
+	width: 85%;
+	max-width: 850px;
+	margin: 0px auto;
+}
+.cabezera{
+	background: #333;
+	color: white;
+	padding: 1rem 0;
+
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
+}
+
+.cabezera a{
+	color: white;
+	text-decoration: none;
+}
+
+.logo-nav-container{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.navegador ul{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.navegador ul li{
+	display: inline-block;
+}
+
+.navegador ul li a{
+	display: block;
+	padding: 0.5rem 1rem;
+	transition: all 0.4s linear;
+	border-radius: 5px;
+}
+
+.navegador ul li a:hover{
+	background: #4a4a4a;
+}
+
+.logo{
+	letter-spacing: 3px;
+	font-size: 1.3em;
+}
+
+.principal{
+	padding-top: 6rem;
+}
