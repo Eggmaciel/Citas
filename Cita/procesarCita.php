@@ -8,11 +8,11 @@ $con = conecta();
 //$Cita = str_replace(" ", "/", $Cita);
 //$Cita = explode("/",$Cita);
 $hoy = getdate();
-$Nombre = $_POST['Nombre'];
-$Apellido = $_POST['Apellido'];
+$Nombre = $_REQUEST['nombre'];
+$Apellido = $_REQUEST['apellido'];
 //$Cita = implode("/",$Cita);
-$Hora = $_POST['hora'];
-$id = $_POST['Citador'];
+$Hora = $_REQUEST['hora'];
+$id = $_REQUEST['citador'];
 
 $sql = "INSERT INTO cita_agenda
 			(Anio,Mes,Dia,Hora,Nombre,Apellido,Id_citador)
@@ -20,5 +20,6 @@ $sql = "INSERT INTO cita_agenda
 
 $res = $con->query($sql);
 
-header('Location: ../Index.php');
+echo 1;
+
 ?>

@@ -6,7 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <LINK REL='StyleSheet' HREF='../estilos/cita.css' >
-    
+    <script>
+			function ComprobarCita(){
+                var hora = $('#hora').val();
+                var Nombre = $('#Nombre').val();
+                var Apellido = $('#Apellido').val();
+                var Citador = $('#Citador').val();
+				$.ajax({
+					type: 'post',
+					datatype: 'text',
+					url: './procesarCita.php?nombre=' + Nombre + '&apellido=' + Apellido + '&hora=' + hora + '&citador=' + Citador,
+					success        :  function(res) { if(res == 1) { alert("La cita se registro con exito"); window.location.href = "../Index.php"; } 	
+															else { $('#mensaje2').html('Usuario o contraseña erroneos, intentelo de nuevo');
+																	setTimeout("$('#mensaje2').html('');", 5000);}
+														},
+						error          :  function() { alert("Error al enviar los datos"); }
+					});
+				
+			}
+		</script>
     <title>Cita</title>
 
 </head>
@@ -68,24 +86,24 @@
                             echo "<h3 class='citaDisponible'>Cita disponible a las</h3>";
                             echo "<form class='citaDisponible' method='POST' action='./procesarCita.php'";
                             echo "<p class='horaDisponible'>".$horaC. "</p>";
-                            echo "<input type='hidden' value='{$horaC}' name='hora'/>";
-                            echo "<input type='hidden' value='$Nombre' name='Nombre'/>";
-                            echo "<input type='hidden' value='$Apellido' name='Apellido'/>";
-                            echo "<input type='hidden' value='$idCitador' name='Citador'/>";
+                            echo "<input type='hidden' value='{$horaC}' id='hora' name='hora'/>";
+                            echo "<input type='hidden' value='$Nombre' id='Nombre' name='Nombre'/>";
+                            echo "<input type='hidden' value='$Apellido' id='Apellido' name='Apellido'/>";
+                            echo "<input type='hidden' value='$idCitador' id='Citador' name='Citador'/>";
                             echo "<input type='submit' value='Agendar Cita'/>";
                             echo "</form>"; 
                             echo "</div>";  
                         }
                         else if($hoy['hours'] == intval($hora[0])){
                             if($hoy['minutes'] < intval($hora[1])){
-                                echo "<h3 class='citaDisponible'>Cita disponible a las</h3></br>";
                                 echo "<form class='citaDisponible' method='POST' action='./procesarCita.php'";
                                 echo "<p class='horaDisponible'>".$horaC. "</p>";
-                                echo "<input type='hidden' value='{$horaC}' name='hora'/>";
-                                echo "<input type='hidden' value='$Nombre' name='Nombre'/>";
-                                echo "<input type='hidden' value='$Apellido' name='Apellido'/>";
-                                echo "<input type='submit' value='Agendar Cita'/>";
-                                echo "</form>";
+                                echo "<input type='hidden' value='{$horaC}' id='hora' name='hora'/>";
+                                echo "<input type='hidden' value='$Nombre' id='Nombre' name='Nombre'/>";
+                                echo "<input type='hidden' value='$Apellido' id='Apellido' name='Apellido'/>";
+                                echo "<input type='hidden' value='$idCitador' id='Citador' name='Citador'/>";
+                                echo "<input type='submit' value='Agendar Cita' onClick='ComprobarCita(); return false;'/>";
+                                echo "</form>"; 
                             }
                         }
                         }
