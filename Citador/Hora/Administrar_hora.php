@@ -1,5 +1,5 @@
 <?php
- require "../Funciones/conecta.php";
+ require "../../Funciones/conecta.php";
 ?>
 
 <!DOCTYPE html>
@@ -9,8 +9,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <LINK REL='StyleSheet' HREF='../estilos/cita.css' >
-    <LINK REL='StyleSheet' HREF='../estilos/cabezera.css' >
+    <LINK REL='StyleSheet' HREF='../../estilos/cita.css' >
+    <LINK REL='StyleSheet' HREF='../../estilos/cabezera.css' >
     <title></title>
 </head>
 
@@ -28,7 +28,7 @@
 	</div>
 </header>
     <?php 
-        require "../Funciones/comprobarSesion.php";
+        require "../../Funciones/comprobarSesion.php";
         probarSesion();
     ?>
     <h1>Horas</h1>

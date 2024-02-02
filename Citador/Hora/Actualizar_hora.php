@@ -1,5 +1,5 @@
 <?php
-require "../Funciones/conecta.php";
+require "../../Funciones/conecta.php";
 $con = conecta();
 
 $id = $_POST['id_hora'];

@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src = "../js/jquery-3.3.1.min.js"></script>
     <LINK REL='StyleSheet' HREF='../estilos/cita.css' >
     <script>
-			function ComprobarCita(){
+			function comprobarCita(){
                 var hora = $('#hora').val();
                 var Nombre = $('#Nombre').val();
                 var Apellido = $('#Apellido').val();
@@ -24,7 +25,7 @@
 					});
 				
 			}
-		</script>
+	</script>
     <title>Cita</title>
 
 </head>
@@ -80,32 +81,37 @@
                         $sql2 = "SELECT * FROM cita_agenda WHERE Dia=".strval($hoy['mday'])." AND Mes=".strval($hoy['mon'])." AND Anio=".strval($hoy['year']) . " AND Hora = '$horaC'";
                         $res2 = $con->query($sql2);
                         if(mysqli_num_rows($res2) == 0){
-                            
-                        if(intval($hoy['hours']) < intval($hora[0])){
-                            echo "<div class='citasD'";
-                            echo "<h3 class='citaDisponible'>Cita disponible a las</h3>";
-                            echo "<form class='citaDisponible' method='POST' action='./procesarCita.php'";
-                            echo "<p class='horaDisponible'>".$horaC. "</p>";
-                            echo "<input type='hidden' value='{$horaC}' id='hora' name='hora'/>";
-                            echo "<input type='hidden' value='$Nombre' id='Nombre' name='Nombre'/>";
-                            echo "<input type='hidden' value='$Apellido' id='Apellido' name='Apellido'/>";
-                            echo "<input type='hidden' value='$idCitador' id='Citador' name='Citador'/>";
-                            echo "<input type='submit' value='Agendar Cita'/>";
-                            echo "</form>"; 
-                            echo "</div>";  
-                        }
-                        else if($hoy['hours'] == intval($hora[0])){
-                            if($hoy['minutes'] < intval($hora[1])){
-                                echo "<form class='citaDisponible' method='POST' action='./procesarCita.php'";
-                                echo "<p class='horaDisponible'>".$horaC. "</p>";
-                                echo "<input type='hidden' value='{$horaC}' id='hora' name='hora'/>";
-                                echo "<input type='hidden' value='$Nombre' id='Nombre' name='Nombre'/>";
-                                echo "<input type='hidden' value='$Apellido' id='Apellido' name='Apellido'/>";
-                                echo "<input type='hidden' value='$idCitador' id='Citador' name='Citador'/>";
-                                echo "<input type='submit' value='Agendar Cita' onClick='ComprobarCita(); return false;'/>";
-                                echo "</form>"; 
-                            }
-                        }
+?>
+
+                       <?php if (intval($hoy['hours']) < intval($hora[0])): ?>
+                            <div class='citasD'>
+                                <h3 class=''>Cita disponible a las</h3>
+                                <form class='citaDisponible'>
+                                    <p class='horaDisponible'><?php echo $horaC; ?></p>
+                                    <input type='hidden' value='<?php echo $horaC; ?>' id="hora" name='hora'/>
+                                    <input type='hidden' value='<?php echo $Nombre; ?>' id="Nombre" name='Nombre'/>
+                                    <input type='hidden' value='<?php echo $Apellido; ?>' id="Apellido" name='Apellido'/>
+                                    <input type='hidden' value='<?php echo $idCitador; ?>' id="Citador" name='Citador'/>
+                                    <input type="submit" value="Agendar Cita" onClick="comprobarCita(); return false;"/>
+                                </form>
+                            </div>
+                        <?php elseif ($hoy['hours'] == intval($hora[0])): ?> 
+                            <?php if ($hoy['minutes'] < intval($hora[1])): ?>
+                                <div class='citasD'>
+                                    <h3 class='citaDisponible'>Cita disponible a las</h3>
+                                    <form class='citaDisponible'>
+                                        <p class='horaDisponible'><?php echo $horaC ?></p>
+                                        <input type='hidden' value='<?php echo $horaC; ?>' id='hora' name='hora'/>
+                                        <input type='hidden' value='<?php echo $Nombre; ?>' id='Nombre' name='Nombre'/>
+                                        <input type='hidden' value='<?php echo $Apellido; ?>' id='Apellido' name='Apellido'/>
+                                        <input type='hidden' value='<?php echo $idCitador; ?>' id='Citador' name='Citador'/>
+                                        <input type="submit" value="Agendar Cita" onClick="comprobarCita(); return false;"/>
+                                    </form>
+                                </div>
+                            <?php endif; ?>
+                        <?php endif; ?>
+                        
+        <?php
                         }
                     }
                 }

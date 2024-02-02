@@ -1,6 +1,6 @@
 <?php
 
-include "../Funciones/conecta.php";
+include "../../Funciones/conecta.php";
 
 $con = conecta();
 $hora = $_POST['Newtime'];
