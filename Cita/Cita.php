@@ -64,12 +64,13 @@
                 echo "</div>";
             }
             else{
-                $sql = "SELECT * FROM citador WHERE Area = '$area'";
+                $sql = "SELECT * FROM citador WHERE Area = '$area' AND stat= 0";
                 $res = $con->query($sql);
-                $idC = $res->fetch_assoc();   
-                $sql = "SELECT * FROM horas_cita where Id_citador = " . $idC['Id_citador'] . " and Habilitada = 0";
-                $res = $con->query($sql);
-                while($row = $res->fetch_array()){
+                //$idC = $res->fetch_array();
+                while($row = $res->fetch_array()){   
+                $sql = "SELECT * FROM horas_cita where Id_citador = " . $row['Id_citador'] . " and Habilitada = 0";
+                $resC = $con->query($sql);
+                while($row = $resC->fetch_array() and mysqli_num_rows($resC) > 0){
                     $id = $row["Id_hora"];
                     $horaC = $row["hora"];
                     $idCitador = $row['Id_citador'];
@@ -97,7 +98,7 @@
                             </div>
                         <?php elseif ($hoy['hours'] == intval($hora[0])): ?> 
                             <?php if ($hoy['minutes'] < intval($hora[1])): ?>
-                                <div class='citasD'>
+                                
                                     <h3 class='citaDisponible'>Cita disponible a las</h3>
                                     <form class='citaDisponible'>
                                         <p class='horaDisponible'><?php echo $horaC ?></p>
@@ -107,7 +108,7 @@
                                         <input type='hidden' value='<?php echo $idCitador; ?>' id='Citador' name='Citador'/>
                                         <input type="submit" value="Agendar Cita" onClick="comprobarCita(); return false;"/>
                                     </form>
-                                </div>
+                                
                             <?php endif; ?>
                         <?php endif; ?>
                         
@@ -115,6 +116,7 @@
                         }
                     }
                 }
+            }
             }
         }
     ?>

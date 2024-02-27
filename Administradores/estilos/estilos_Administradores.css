@@ -1,0 +1,53 @@
+td{
+	text-align: center;
+	margin: 10px;
+	padding: 5px;
+	box-shadow: 2px 2px;
+}	
+
+table{
+	margin-top: 50px;
+	box-shadow: 3px 3px 8px #762636;
+	padding: 5px;
+	background-color: #90AFC5;
+	border: 2px solid black;
+}
+body{
+	background-color: #366B87;
+	font-size: 20px;	
+	padding: 0px;
+	margin: 0;
+}
+h1{
+	color: #2A3132;
+}
+
+a{
+	text-decoration: none;
+	transition: all 0.4s linear;
+}
+.tabla{
+	margin-top:0px;
+}
+h3{
+	margin: 0px;
+}
+
+.detalles a:hover{
+	color: #2196F3;
+}
+.edita a:hover{
+	color: #2196F3;
+}
+
+.Eliminar a:hover{
+	color: red;
+}
+
+.altaA a:hover{
+	color: #00BB2D;
+}
+
+textarea{
+	resize: none;
+}

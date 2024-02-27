@@ -11,7 +11,7 @@ body{
 	color: white;
 	padding: 1rem 0;
 
-	position: fixed;
+	/*position: fixed;*/
 	left: 0;
 	top: 0;
 	right: 0;
@@ -57,3 +57,4 @@ body{
 .principal{
 	padding-top: 6rem;
 }
+

@@ -1,5 +1,7 @@
 <?php 
-require "../Funciones/conecta.php";
+require "../../Funciones/conecta.php";
+require "../../Funciones/comprobarSesionA.php";
+probarSesion();
 
 $con = conecta();
 
@@ -9,11 +11,15 @@ $area = $_POST['area'];
 $pass = $_POST['contra'];
 $encPass = md5($pass);
 
+if(empty($nombre) || empty($Apellido) || empty($area) || empty($contra)){
+	header("Location: ./ListadoCitadores.php");
+}
+
 $sql = "INSERT INTO citador
 			(Nombre,Apellido,Area,stat,pass)
 			VALUES ('$nombre','$apellido','$area','0','$encPass')";
 			
 $res = $con->query($sql);
 		
-//header("Location: Citadores_Lista.php");
+header("Location: ./ListadoCitadores.php");
 ?>

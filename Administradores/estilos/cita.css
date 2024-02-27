@@ -1,6 +1,5 @@
 body{
-	background-color: #5fdafc;
-	font-size: 20px;	
+	background-color: #5fdafc;	
 	
 }
 
@@ -16,7 +15,7 @@ body{
 }
 
 input,select{
-	margin: 7px;
+	margin: 3px;
 }
 
 h1{
@@ -45,7 +44,7 @@ h1{
     margin-right: auto;
 	border: 1px solid black;
 	width: 310px;
-	height: 200px;
+	height: 300px;
 	text-align: center;
 	padding-top: 5px;
     margin-bottom: 10px;
@@ -70,4 +69,8 @@ h1{
     margin-bottom: 20px;
 	background-color: #dfe8ed;
 	box-shadow: 3px 3px 8px #762636;
+}
+
+textarea{
+	resize: none;
 }

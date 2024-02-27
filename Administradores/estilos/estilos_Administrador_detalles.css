@@ -1,0 +1,32 @@
+body{
+	background-color: #366B87;
+	font-size: 20px;	
+	padding: 10px;
+}
+
+h1{
+	color: #2A3132;
+	text-align: center;
+}
+#detalles{
+	width: 330px;
+	margin-left: auto;
+    margin-right: auto;
+	box-shadow: 3px 3px 8px #66A5AD;
+	padding: 2px 0px 2px 10px;
+}
+.detalle{
+	color: #4CB5F5;
+}
+.imagen{
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid black;
+	width: 200px;
+	height: 200px;
+}
+
+#imagen_perfil{
+	width: 200px;
+	height: 200px;
+}

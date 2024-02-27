@@ -35,11 +35,20 @@
         <form action="./Cita/Cita.php" method="POST">
             <input type="text" name="Nombre" id="nombreR" class="registro" placeholder="Nombre"/></br>
             <input type="text" name="Apellido" id="apellidoR" class="registro" placeholder="Primer apellido"/></br>
-            <select name="area" id="area">
-				<option value="0">Seleccionar</option>
-				<option value="RecursosHumanos">Recursos Humanos</option>
-				<option value="Control escolar">Control Escolar</option>
-			</select><br><br>
+            <?php 
+            require "./Funciones/conecta.php";
+            $con = conecta();
+            $sql = "select * from area";
+            $res = $con->query($sql);
+            echo "<select name='area' id='area'>";
+				echo "<option value='0'>Seleccionar</option>";
+                while($row = $res->fetch_array()){
+                    $nombre_area = $row['nombre_area'];
+                    $iniciales = $row["iniciales"];
+                   echo '<option value="'.$iniciales.'">'.$nombre_area.'</option>';
+                }
+			echo "</select><br><br>";
+            ?>
             <div id="mensaje2" class="errorCampos"></div><br>
             <input type="submit" value="Hacer cita" onClick="return validarDatos();"/>
         </form>
