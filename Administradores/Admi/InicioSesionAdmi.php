@@ -1,7 +1,9 @@
 <?php
 	session_start();
-	require "../../Funciones/conecta.php";
+	require "../Funciones/conecta.php";
+	
 	$con = conecta();
+	
 	
 	$nombre = $_REQUEST['nombre'];
 	$pass = $_REQUEST['pass'];

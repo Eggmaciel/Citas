@@ -50,4 +50,7 @@ h3{
 
 textarea{
 	resize: none;
+	width: 250px;
+	height: 80px;
+	
 }

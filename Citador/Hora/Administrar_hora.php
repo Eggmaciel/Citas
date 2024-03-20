@@ -1,7 +1,3 @@
-<?php
- require "../../Funciones/conecta.php";
-?>
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -11,24 +7,24 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <LINK REL='StyleSheet' HREF='../../estilos/cita.css' >
     <LINK REL='StyleSheet' HREF='../../estilos/cabezera.css' >
-    <title></title>
+    <title>Lista horas</title>
 </head>
 
 <body>
 <header class="cabezera">
 	<div class="contenedor logo-nav-container">
-		<a class="logo" href="#">Administradores</a>
+		<a class="logo" href="#">Citadores</a>
 		<nav class="navegador">	
 			<ul>
-				<li><a href="../Bienvenido.php">Inicio</a></li>
 				<li><a href="../ListadoCita.php" class="banner">Citas pendientes</a></li>
-				<li><a href="../../Funciones/cerrarSesion.php">Cerrar sesion</a></li>
+				<li><a href="../Funciones/cerrarSesion.php">Cerrar sesion</a></li>
 			</ul>
 		</nav>
 	</div>
 </header>
     <?php 
-        require "../../Funciones/comprobarSesion.php";
+        require "../Funciones/comprobarSesion.php";
+        require "../Funciones/conecta.php";
         probarSesion();
     ?>
     <h1>Horas</h1>

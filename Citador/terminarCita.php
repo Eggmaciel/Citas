@@ -1,5 +1,7 @@
 <?php
-    require "../Funciones/conecta.php";
+    require "./Funciones/conecta.php";
+    require "./Funciones/comprobarSesion.php";
+    probarSesion();
 
     $con = conecta();
 

@@ -2,7 +2,7 @@
 	session_start();
 	
 	if(isset($_SESSION['sesion']['id'])){
-		header('Location:Bienvenido.php');
+		header('Location:ListadoCita.php');
 	}
 ?>
 <!DOCTYPE html>
@@ -27,8 +27,8 @@
 						type: 'post',
 						datatype: 'text',
 						url: './InicioSesion.php?nombre=' + nombre + '&pass=' + pass,
-						success        :  function(res) { if(res == 1) { window.location.href = "Bienvenido.php"; } 	
-															else { $('#mensaje2').html('Usuario o contraseña erroneos, intentelo de nuevo');
+						success        :  function(res) { if(res == 1) {  window.location.href = "ListadoCita.php"; } 	
+															else {alert(res); $('#mensaje2').html('Usuario o contraseña erroneos, intentelo de nuevo');
 																	setTimeout("$('#mensaje2').html('');", 5000);}
 														},
 						error          :  function() { alert("Error al enviar los datos"); }
@@ -46,8 +46,8 @@
 		<h1>Iniciar Sesion</h1>
 		<div id="FormularioLogin" class="Bienvenida">
 			<form id="Forma01" name="Forma01">
-				<input type="text" id="usuario" class="registro" placeholder="Ingresa nombre"/><br><br>
-				<input type="password" id="contra" class="registro"/><br><br>
+			<p style="display:inline">Nombre</p><input type="text" id="usuario" class="registro" placeholder="Ingresa nombre"/><br><br>
+			<p style="display:inline">Contraseña</p><input type="password" id="contra" class="registro"/><br><br>
 				<input type="submit" value="Log in" onClick="verificarInfo(); return false;"/><br>
 				<div class="mensaje" id="mensaje1"></div>
 				<div class="mensaje" id="mensaje2"></div>

@@ -1,16 +1,16 @@
 <?php 
-	require "../../Funciones/comprobarSesionA.php";
+	require "../Funciones/comprobarSesionA.php";
 	probarSesion();
 ?>
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Listado de administradores</title>
+		<title>Listado de areas</title>
 		<meta charset = 'utf-8'>
 		<LINK REL='StyleSheet' HREF='../estilos/cita.css' >
 		<link rel="stylesheet" href="../estilos/cabezeraAdmi.css">
         <link rel="stylesheet" href="../estilos/estilos_Administradores.css">
-		<script src = "../../js/jquery-3.3.1.min.js"></script>
+		<script src = "../js/jquery-3.3.1.min.js"></script>
 	</head>
 	<body>
     <header >
@@ -59,9 +59,13 @@
                         </li>
                     </ul>
                 </li>
+
+				<li class="menu__item  menu__item--show">
+					<a href="../Excels/ListaExcel.php" class="menu__link">Descargar  </a>
+				</li>
     
                 <li class="menu__item">
-                    <a href=" ../../Funciones/cerrarSesionA.php" class="menu__link">Cerrar sesion</a>
+                    <a href=" ../Funciones/cerrarSesionA.php" class="menu__link">Cerrar sesion</a>
                 </li>
     
             </ul>
@@ -80,10 +84,11 @@
 							<th>Nombre</th>
 							<th>Iniciales</th>
 							<th>Editar</th>
+							<th></th>
 						</tr>
 						<?php
 							
-							require "../../Funciones/conecta.php";
+							require "../Funciones/conecta.php";
 							$con = conecta();
 							
 							$sql = "SELECT * FROM area";
@@ -99,7 +104,13 @@
 									echo "<td name=\"idr$id\">$id</td>";
 									echo "<td class='nombreCompleto'>$nombre </td>";
 									echo "<td class='area'>$Iniciales</td>";
-									echo "<td class=\"edita\"><a href=\"editarArea.php?id=$id\">EDITAR</a></td>";
+									echo "<td class=\"edita\"><a href=\"editarArea.php?id=$id\">Editar</a></td>";
+									if($row['activo'] == 0){
+										echo "<td class='Eliminar'><a href='./DeshabilitarArea.php?idA=$id'>Deshabilitar</a></td>";
+									}
+									else{
+										echo "<td class='altaA'><a href='./HabilitarArea.php?idA=$id'>Habilitar </a></td>";
+									}
 								echo "</tr>";
 							}
 						?>

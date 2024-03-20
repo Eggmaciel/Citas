@@ -33,12 +33,12 @@
 <h1 aling="center">Agendar Cita</h1>
     <div class="Bienvenida">
         <form action="./Cita/Cita.php" method="POST">
-            <input type="text" name="Nombre" id="nombreR" class="registro" placeholder="Nombre"/></br>
-            <input type="text" name="Apellido" id="apellidoR" class="registro" placeholder="Primer apellido"/></br>
+        <p style="display:inline">Nombre</p><input type="text" name="Nombre" id="nombreR" class="registro" placeholder="Nombre"/>
+        <p style="display:inline">Apellido</p><input type="text" name="Apellido" id="apellidoR" class="registro" placeholder="Primer apellido"/>
             <?php 
             require "./Funciones/conecta.php";
             $con = conecta();
-            $sql = "select * from area";
+            $sql = "select * from area where activo=0";
             $res = $con->query($sql);
             echo "<select name='area' id='area'>";
 				echo "<option value='0'>Seleccionar</option>";
@@ -47,7 +47,7 @@
                     $iniciales = $row["iniciales"];
                    echo '<option value="'.$iniciales.'">'.$nombre_area.'</option>';
                 }
-			echo "</select><br><br>";
+			echo "</select>";
             ?>
             <div id="mensaje2" class="errorCampos"></div><br>
             <input type="submit" value="Hacer cita" onClick="return validarDatos();"/>

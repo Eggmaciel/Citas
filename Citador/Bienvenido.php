@@ -15,7 +15,7 @@
 				<ul>
 					<li><a href="Hora/Administrar_hora.php" class="administradores">Administar hora</a></li>
 					<li><a href="./ListadoCita.php" class="banner">Citas pendientes</a></li>
-					<li><a href="../Funciones/cerrarSesion.php">Cerrar sesion</a></li>
+					<li><a href="./Funciones/cerrarSesion.php">Cerrar sesion</a></li>
 				</ul>
 			</nav>
 		</div>

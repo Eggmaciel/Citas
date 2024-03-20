@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src = "../js/jquery-3.3.1.min.js"></script>
     <LINK REL='StyleSheet' HREF='../estilos/cita.css' >
+    <title>Citas disponibles</title>
     <script>
 			function comprobarCita(){
                 var hora = $('#hora').val();
@@ -18,8 +19,9 @@
 					datatype: 'text',
 					url: './procesarCita.php?nombre=' + Nombre + '&apellido=' + Apellido + '&hora=' + hora + '&citador=' + Citador,
 					success        :  function(res) { if(res == 1) { alert("La cita se registro con exito"); window.location.href = "../Index.php"; } 	
-															else { $('#mensaje2').html('Usuario o contraseña erroneos, intentelo de nuevo');
-																	setTimeout("$('#mensaje2').html('');", 5000);}
+															else { $('#mensaje2').html('Error al procesar cita');
+																	setTimeout("$('#mensaje2').html('');", 5000);
+                                                                    window.location.href = "../Index.php";}
 														},
 						error          :  function() { alert("Error al enviar los datos"); }
 					});
@@ -37,7 +39,7 @@
         date_default_timezone_set('America/Mexico_City');
 
         $hoy = getdate();
-        //echo $hoy['hours'];
+
         //echo date('l jS \of F Y h:i:s A');
         if($hoy['wday'] == 6 || $hoy['wday'] == 0){
             echo "<div class='no_citas'";
@@ -56,14 +58,6 @@
                 $Apellido = $_POST["Apellido"];
                 $area = $_POST['area'];
             }
-            $sql = "SELECT * FROM fechas_no_validas WHERE Dia=".strval($hoy['mday'])." AND Mes = ".strval($hoy['mon'])." AND Anio = ".strval($hoy['year']);
-            $res = $con->query($sql);
-            if(mysqli_num_rows($res) > 0){
-                echo "<div class='no_citas'";
-                echo "<h1 class='error'>No hay citas disponibles para hoy</h1>";
-                echo "</div>";
-            }
-            else{
                 $sql = "SELECT * FROM citador WHERE Area = '$area' AND stat= 0";
                 $res = $con->query($sql);
                 //$idC = $res->fetch_array();
@@ -117,7 +111,7 @@
                     }
                 }
             }
-            }
+            
         }
     ?>
 </body>

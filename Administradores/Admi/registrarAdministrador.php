@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../estilos/cabezeraAdmi.css">
     <link rel="stylesheet" href="../estilos/estilos_Administradores.css">
     <script src = "../../js/jquery-3.3.1.min.js"></script>
-    <title>Bienvenido</title>
+    <title>Registrar administrador</title>
 
     <script>
         function validarDatos(){
@@ -78,9 +78,13 @@
                         </li>
                     </ul>
                 </li>
+
+                <li class="menu__item  menu__item--show">
+					<a href="../Excels/ListaExcel.php" class="menu__link">Descargar  </a>
+				</li>
     
                 <li class="menu__item">
-                    <a href=" ../../Funciones/cerrarSesionA.php" class="menu__link">Cerrar sesion</a>
+                    <a href=" ../Funciones/cerrarSesionA.php" class="menu__link">Cerrar sesion</a>
                 </li>
     
             </ul>
@@ -90,15 +94,15 @@
 		</div>
 	</header>
 <?php 
-    require "../../Funciones/comprobarSesionA.php";
+    require "../Funciones/comprobarSesionA.php";
     probarSesion();
 ?>
 <h1 aling="center">Registrar Administrador</h1>
     <div class="Bienvenida">
         <form action="./registrarA.php" method="POST">
-            <input type="text" name="Nombre" id="nombreR" class="registro" placeholder="Nombre"/></br>
-            <input type="text" name="Apellido" id="apellidoR" class="registro" placeholder="Primer apellido"/></br>
-            <input type="password" placeholder="contraseña" name="contra" id="contra" class="registro"/></br>
+        <p style="display:inline">Nombre</p><input type="text" name="Nombre" id="nombreR" class="registro" placeholder="Alejandro"/></br>
+        <p style="display:inline">Apellido</p><input type="text" name="Apellido" id="apellidoR" class="registro" placeholder="Torrez"/></br>
+        <p style="display:inline">Contraseña</p><input type="password" placeholder="contraseña" name="contra" id="contra" class="registro"/></br>
             <div id="mensaje2" class="errorCampos"></div><br>
             <input type="submit" value="Registrar" onClick="return validarDatos();"/>
         </form>

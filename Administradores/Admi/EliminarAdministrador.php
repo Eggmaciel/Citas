@@ -7,14 +7,13 @@
 	
 	//Recibe variables
 	$id = $_REQUEST['id'];
-
-	if(empty($id)) header("Location: ./ListadoCitadores.php");
 	
 	if(!empty($id)) {
 		//$sql = "DELETE FROM administradores WHERE id = $id";
-		$sql = "UPDATE citador SET stat = 1 WHERE Id_citador = $id";
+		$sql = "UPDATE administrador SET activo = 1 WHERE id_administrador = $id";
 		$con->query($sql);
 	}
+	else header("Location: ./ListadoAdministrador.php");
 	//echo $sql;
 	//Mensaje que retorna en Ajax
 	echo "Se elimino exitosamente el registro con id: $id";

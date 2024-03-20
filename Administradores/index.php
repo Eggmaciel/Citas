@@ -10,8 +10,8 @@
 	<head>
 		<title>Log-in</title>
 		<meta charset="utf-8"/>
-		<script src = "../js/jquery-3.3.1.min.js"></script>
-		<LINK REL='StyleSheet' HREF='../estilos/cita.css' >
+		<script src = "./js/jquery-3.3.1.min.js"></script>
+		<LINK REL='StyleSheet' HREF='./estilos/cita.css' >
 		<script>
 			function verificarInfo(){
 				var nombre = $('#usuario').val();
@@ -45,8 +45,8 @@
 		<h1>Iniciar Sesion</h1>
 		<div id="FormularioLogin" class="Bienvenida">
 			<form id="Forma01" name="Forma01">
-				<input type="text" id="usuario" class="registro" placeholder="Ingresa nombre"/><br><br>
-				<input type="password" id="contra" class="registro"/><br><br>
+			<p style="display:inline">Nombre</p><input type="text" id="usuario" class="registro" placeholder="Ingresa nombre"/><br/>
+			<p style="display:inline">Contraseña</p><input type="password" id="contra" class="registro"/></br>
 				<input type="submit" value="Log in" onClick="verificarInfo(); return false;"/><br>
 				<div class="mensaje" id="mensaje1"></div>
 				<div class="mensaje" id="mensaje2"></div>

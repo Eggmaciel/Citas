@@ -8,8 +8,8 @@
     <LINK REL='StyleSheet' HREF='../estilos/cita.css' >
 	<link rel="stylesheet" href="../estilos/cabezeraAdmi.css">
     <link rel="stylesheet" href="../estilos/estilos_Administradores.css">
-    <script src = "../../js/jquery-3.3.1.min.js"></script>
-    <title>Bienvenido</title>
+    <script src = "../js/jquery-3.3.1.min.js"></script>
+    <title>Registrar citador</title>
 
     <script>
         function validarDatos(){
@@ -78,9 +78,13 @@
                         </li>
                     </ul>
                 </li>
+
+                <li class="menu__item  menu__item--show">
+					<a href="../Excels/ListaExcel.php" class="menu__link">Descargar </a>
+				</li>
     
                 <li class="menu__item">
-                    <a href=" ../../Funciones/cerrarSesionA.php" class="menu__link">Cerrar sesion</a>
+                    <a href=" ../Funciones/cerrarSesionA.php" class="menu__link">Cerrar sesion</a>
                 </li>
             </ul>
         </section>
@@ -88,7 +92,7 @@
 		</div>
 	</header>
     <?php
-        require "../../Funciones/comprobarSesionA.php";
+        require "../Funciones/comprobarSesionA.php";
         probarSesion();
     ?>
 <h1 aling="center">Registrar</h1>
@@ -97,7 +101,7 @@
             <input type="text" name="Nombre" id="nombreR" class="registro" placeholder="Nombre"/></br>
             <input type="text" name="Apellido" id="apellidoR" class="registro" placeholder="Primer apellido"/></br>
             <?php 
-            require "../../Funciones/conecta.php";
+            require "../Funciones/conecta.php";
             $con = conecta();
             $sql = "select * from area";
             $res = $con->query($sql);
@@ -111,7 +115,7 @@
 			echo "</select>";
             ?>
             <input type="password" placeholder="contraseña" name="contra" id="contra" class="registro"/>
-            <div id="mensaje2" class="errorCampos"></div><br>
+            <div id="mensaje2" class="errorCampos"></div>
             <input type="submit" value="Registrar" onClick="return validarDatos();"/>
         </form>
     </div>

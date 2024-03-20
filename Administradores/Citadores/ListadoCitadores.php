@@ -1,5 +1,5 @@
 <?php
-	require "../../Funciones/comprobarSesionA.php";
+	require "../Funciones/comprobarSesionA.php";
 	probarSesion();
 ?>
 <!DOCTYPE html>
@@ -10,7 +10,7 @@
 		<LINK REL='StyleSheet' HREF='../estilos/cita.css' >
 	<link rel="stylesheet" href="../estilos/cabezeraAdmi.css">
     <link rel="stylesheet" href="../estilos/estilos_Administradores.css">
-		<script src = "../../js/jquery-3.3.1.min.js"></script>
+		<script src = "../js/jquery-3.3.1.min.js"></script>
 		<script>
 			function eliminaFilas(fila){
 				//la funcion val es incompatible con las etiquetas tr/td, por lo que utilizo la alternativa attr()
@@ -79,9 +79,13 @@
                         </li>
                     </ul>
                 </li>
+
+				<li class="menu__item  menu__item--show">
+					<a href="../Excels/ListaExcel.php" class="menu__link">Descargar</a>
+				</li>
     
                 <li class="menu__item">
-                    <a href=" ../../Funciones/cerrarSesionA.php" class="menu__link">Cerrar sesion</a>
+                    <a href=" ../Funciones/cerrarSesionA.php" class="menu__link">Cerrar sesion</a>
                 </li>
     
             </ul>
@@ -100,13 +104,14 @@
 							<th>Nombre</th>
 							<th>Apellido</th>
 							<th>Area</th>
-							<th></th>
+							<th>Eliminar</th>
+
 						</tr>
 						<?php
 							//administradores_lista.php
 							
 							//realiza una coneccion a la base de datos
-							require "../../funciones/conecta.php";
+							require "../Funciones/conecta.php";
 							$con = conecta();
 							
 							$sql = "SELECT * FROM citador WHERE  stat= 0";
@@ -124,9 +129,8 @@
 									echo "<td class='nombreCompleto'>$nombre </td>";
 									echo "<td class='nombreCompleto'>$apellidos</td>";
 									echo "<td class='area'>$area</td>";
-									echo "<td class=\"Eliminar\"><a href=\"javascript:void(0);\" onClick=\"eliminaFilas($id)\">ELIMINAR</a></td>";
-									// echo "<td class=\"detalles\"><a href=\"administradores_detalle.php?id=$id\">DETALLES</a></td>";
-									//echo "<td class=\"edita\"><a href=\"administradores_edita.php?id=$id\">EDITAR</a></td>";
+									echo "<td class=\"Eliminar\"><a href=\"javascript:void(0);\" onClick=\"eliminaFilas($id)\">Eliminar</a></td>";
+									echo "<td class=\"edita\"><a href=\"editarCitador.php?id=$id\">Editar</a></td>";
 								echo "</tr>";
 							}
 						?>

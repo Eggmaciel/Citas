@@ -1,13 +1,14 @@
 <?php
 	session_start();
-	require "../Funciones/conecta.php";
+	require "./Funciones/conecta.php";
 	$con = conecta();
 	
 	$nombre = $_REQUEST['nombre'];
 	$pass = $_REQUEST['pass'];
 
 	if (empty($nombre) || empty($pass)){
-		header("Location: ./loggin.php");
+		session_destroy();
+		header("Location: ./index.php");
 	}
 
 	$encPass = md5($pass);

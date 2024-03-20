@@ -1,5 +1,5 @@
 body{
-	background-color: #5fdafc;
+	background-color: #f9f9f94f;
 	font-size: 20px;	
 	
 }
@@ -12,7 +12,7 @@ body{
 	text-align: center;
 	padding-top: 5px;
 	background-color: #90AFC5;
-	box-shadow: 3px 3px 8px #762636;
+	box-shadow: 3px 3px 8px #f6cdd5;
 }
 
 input,select{
@@ -20,7 +20,7 @@ input,select{
 }
 
 h1{
-	color: #2A3132;
+	color: #164463;
 	text-align: center;
 }
 
@@ -43,14 +43,16 @@ h1{
 .Bienvenida{
 	margin-left: auto;
     margin-right: auto;
-	border: 1px solid black;
-	width: 310px;
+	border: 3px solid black;
+	width: 350px;
 	height: 200px;
 	text-align: center;
 	padding-top: 5px;
     margin-bottom: 10px;
-	background-color: #dfe8ed;
-	box-shadow: 3px 3px 8px #762636;
+	background-color: #e5e5ef7b;
+	color: #164463;
+	box-shadow: 3px 3px 8px #143D59;
+	border-radius: 10px;
 }
 
 .registro{
@@ -64,10 +66,12 @@ h1{
     margin-right: auto;
 	border: 1px solid black;
 	width: 310px;
-	height: 100px;
+	min-height: 100px;
 	text-align: center;
 	padding-top: 5px;
     margin-bottom: 20px;
-	background-color: #dfe8ed;
-	box-shadow: 3px 3px 8px #762636;
+	background-color: #e5e5ef7b;
+	color: #164463;
+	box-shadow: 3px 3px 8px #143D59;
+	border-radius: 10px;
 }

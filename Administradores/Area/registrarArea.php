@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="../estilos/cabezeraAdmi.css">
     <link rel="stylesheet" href="../estilos/estilos_Administradores.css">
     <script src = "../../js/jquery-3.3.1.min.js"></script>
-    <title>Bienvenido</title>
+    <title>registrar area</title>
 
     <script>
         function validarDatos(){
@@ -56,10 +56,10 @@
     
                     <ul class="menu__nesting">
                         <li class="menu__inside">
-                            <a href="#" class="menu__link menu__link--inside">Listado areas</a>
+                            <a href="./listadoAreas.php" class="menu__link menu__link--inside">Listado areas</a>
                         </li>
                         <li class="menu__inside">
-                            <a href="./registrarArea.php" class="menu__link menu__link--inside">Registrar area</a>
+                            <a href="#" class="menu__link menu__link--inside">Registrar area</a>
                         </li>
                         
                     </ul>
@@ -77,9 +77,13 @@
                         </li>
                     </ul>
                 </li>
+
+                <li class="menu__item  menu__item--show">
+					<a href="../Excels/ListaExcel.php" class="menu__link">Descargar  </a>
+				</li>
     
                 <li class="menu__item">
-                    <a href=" ../../Funciones/cerrarSesionA.php" class="menu__link">Cerrar sesion</a>
+                    <a href=" ../Funciones/cerrarSesionA.php" class="menu__link">Cerrar sesion</a>
                 </li>
     
             </ul>
@@ -89,16 +93,16 @@
 		</div>
 	</header>
     <?php
-    require "../../Funciones/comprobarSesionA.php";
+    require "../Funciones/comprobarSesionA.php";
     probarSesion();
     ?>
 <h1 aling="center">Registrar area</h1>
     <div class="Bienvenida">
         <form action="./agregarArea.php" method="POST">
-            <input type="text" name="NombreArea" id="nombreA" class="registro" placeholder="Nombre del area"/></br>
-            <input type="text" name="Iniciales" id="iniciales" class="registro" placeholder="Iniciales"/></br>
-            <textarea placeholder="Descripcion" name="descripcion" id="desc" class="registro"></textarea></br>
-            <div id="mensaje2" class="errorCampos"></div><br>
+        <p style="display:inline">Nombre</p><input type="text" name="NombreArea" id="nombreA" class="registro" placeholder="Recursos humanos"/></br>
+        <p style="display:inline">Iniciales</p><input type="text" name="Iniciales" id="iniciales" class="registro" placeholder="RH"/></br>
+        <textarea placeholder="Descripcion" name="descripcion" id="desc" class="registro"></textarea>
+            <div id="mensaje2" class="errorCampos"></div>
             <input type="submit" value="Registrar" onClick="return validarDatos();"/>
         </form>
     </div>

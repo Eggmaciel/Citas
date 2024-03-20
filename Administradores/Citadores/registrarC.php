@@ -1,6 +1,6 @@
 <?php 
-require "../../Funciones/conecta.php";
-require "../../Funciones/comprobarSesionA.php";
+require "../Funciones/conecta.php";
+require "../Funciones/comprobarSesionA.php";
 probarSesion();
 
 $con = conecta();
